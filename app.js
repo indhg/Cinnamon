@@ -191,7 +191,7 @@
   // --- 恢复欢迎区 ---
   function resetToWelcome () {
     activePath = null
-    noteTitle.textContent = '👋 欢迎'
+    noteTitle.textContent = '欢迎喵'
     btnDownload.style.display = 'none'
     pdfViewer.innerHTML = WELCOME_HTML
     renderTree(searchEl.value)
