@@ -186,13 +186,24 @@
     <div class="welcome-placeholder" id="welcomeArea">
       <div class="welcome-inner">
         <div class="welcome-brand">
-          红云irch的肉桂卷
+          欢迎来到红云irch的肉桂卷~
         </div>
         <div class="welcome-divider"></div>
         <div class="welcome-preface">
-          <p><strong>温馨提示：</strong>Cinnamon 支持 <strong>.one</strong> 与 <strong>.pdf</strong> 两种格式的笔记。其中，PDF 支持在线预览，但由于文件由 .one 导出，其清晰度与浏览体验与 .one 文件有一定出入；OneNote 文件更清晰，高度自定义，支持自由删改，但不支持在线预览，且需要 OneNote 打开。请读者自行取舍喵。</p>
+          <p><strong>温馨提示：</strong>Cinnamon 支持以下两种笔记格式，请按需选择——</p>
 
-          <p>索琳肉桂卷（Cinnamon Rollyn）是 Terraria 众神之怒 MOD 中的一种食物，食用后，会给予玩家饱如巨星增益，可看作酒足饭饱增益的更强版本。</p>
+          <p class="format-compare">
+            <span class="format-tag pdf">.pdf</span>
+            支持<strong>在线预览</strong>，但由 .one 导出，清晰度和排版略逊于原文件
+          </p>
+          <p class="format-compare">
+            <span class="format-tag one">.one</span>
+            需要 <strong>OneNote</strong> 打开，不支持在线预览，但<strong>更清晰、可自由编辑删改</strong>
+          </p>
+
+          <p>请读者自行取舍喵~</p>
+
+          <p>仓库名字灵感来自 <span class="inline-accent">「索琳肉桂卷」</span>——索琳肉桂卷（Cinnamon Rollyn）是 Terraria 众神之怒 MOD 中的一种食物，食用后，会给予玩家饱如巨星增益，可看作酒足饭饱增益的更强版本。</p>
 
           <p>做笔记分享的初衷很简单：督促自己抓紧复习，给散漫的日子挂一个无形的 ddl。没人催你，但你知道这里还有东西没整理完。</p>
 
@@ -203,9 +214,6 @@
           <p class="preface-quote">「在这众神之怒中，总有人要成为你的超级巨星。」——索琳</p>
         </div>
         <p class="welcome-hint">左侧选择笔记即可预览</p>
-        <p class="welcome-counter">
-          <span id="busuanzi_container_site_uv">👀 被 <span id="busuanzi_value_site_uv"></span> 人浏览过</span>
-        </p>
       </div>
     </div>`
 

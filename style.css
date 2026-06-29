@@ -387,10 +387,11 @@ button { font-family: inherit; cursor: pointer; }
 
 /* 欢迎内容面板（半透明底，让背景图上的文字可读） */
 .welcome-inner {
-  background: rgba(255, 251, 247, 0.55);
+  background: rgba(255, 251, 247, 0.78);
   border-radius: 12px;
-  padding: 32px 40px;
-  backdrop-filter: blur(2px);
+  padding: 36px 44px;
+  backdrop-filter: blur(4px);
+  max-width: 560px;
 }
 
 /* 品牌名 */
@@ -417,11 +418,55 @@ button { font-family: inherit; cursor: pointer; }
 
 /* 序言区域 */
 .welcome-preface {
-  max-width: 480px;
+  max-width: 520px;
   margin: 8px auto 20px;
   font-size: .95rem;
   color: #8B7B7B;
   line-height: 1.8;
+}
+
+.welcome-preface p {
+  margin-bottom: 12px;
+}
+
+.welcome-preface p:first-child {
+  font-size: .85rem;
+  color: #A09090;
+}
+
+/* 格式对比 */
+.format-compare {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: .85rem;
+  color: #8B7B7B;
+  padding: 2px 0 2px 8px;
+  border-left: 3px solid var(--border);
+  margin-bottom: 6px !important;
+}
+
+.format-tag {
+  display: inline-block;
+  min-width: 36px;
+  padding: 1px 8px;
+  border-radius: 4px;
+  font-size: .8rem;
+  font-weight: 700;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.format-tag.pdf {
+  background: #FFF0F0;
+  color: #D08080;
+  border: 1px solid #F0D0D0;
+}
+
+.format-tag.one {
+  background: #F0F0FF;
+  color: #8080D0;
+  border: 1px solid #D0D0F0;
 }
 
 .welcome-preface a {
@@ -432,6 +477,12 @@ button { font-family: inherit; cursor: pointer; }
 
 .welcome-preface a:hover {
   color: var(--heading);
+}
+
+/* 行内强调 */
+.inline-accent {
+  color: var(--accent);
+  font-style: italic;
 }
 
 /* 序言引用 */
