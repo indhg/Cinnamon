@@ -343,19 +343,60 @@ button { font-family: inherit; cursor: pointer; }
   border: none;
 }
 
-/* 欢迎占位 */
+/* 欢迎区（未选中笔记时显示） */
 .welcome-placeholder {
   text-align: center;
   color: #C0B0B0;
+  padding: 40px 20px;
 }
 
-.welcome-placeholder .icon-big {
-  font-size: 4rem;
-  margin-bottom: 12px;
+/* 品牌名 */
+.welcome-brand {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
 }
 
-.welcome-placeholder p {
+.welcome-brand .accent {
+  color: var(--accent);
+}
+
+/* 小分隔线 */
+.welcome-divider {
+  width: 50px;
+  height: 2px;
+  background: var(--accent);
+  margin: 16px auto;
+  border-radius: 1px;
+}
+
+/* 序言区域 */
+.welcome-preface {
+  max-width: 480px;
+  margin: 8px auto 20px;
   font-size: .95rem;
+  color: #8B7B7B;
+  line-height: 1.8;
+}
+
+.welcome-preface a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.welcome-preface a:hover {
+  color: var(--heading);
+}
+
+/* 提示文字 */
+.welcome-hint {
+  font-size: .85rem;
+  color: #C8B8B8;
+  margin-top: 8px;
+}
   line-height: 1.7;
 }
 

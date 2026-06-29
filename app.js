@@ -175,6 +175,28 @@
     renderTree(searchEl.value)
   }
 
+  // --- 欢迎区 HTML（用于恢复初始状态）---
+  const WELCOME_HTML = `
+    <div class="welcome-placeholder" id="welcomeArea">
+      <div class="welcome-brand">
+        红云<span class="accent">irch</span>的肉桂卷
+      </div>
+      <div class="welcome-divider"></div>
+      <div class="welcome-preface">
+        <!-- 在这里添加序言内容 -->
+      </div>
+      <p class="welcome-hint">📂 左侧选择笔记即可预览</p>
+    </div>`
+
+  // --- 恢复欢迎区 ---
+  function resetToWelcome () {
+    activePath = null
+    noteTitle.textContent = '👋 欢迎'
+    btnDownload.style.display = 'none'
+    pdfViewer.innerHTML = WELCOME_HTML
+    renderTree(searchEl.value)
+  }
+
   // --- 选中笔记 ---
   function selectNote (node) {
     activePath = node.pdf || null
@@ -260,6 +282,15 @@
   })
 
   // --- 启动 ---
+  // 点击侧边栏品牌名 → 回到欢迎页
+  document.querySelector('.sidebar-header .brand-sm').addEventListener('click', resetToWelcome)
+
+  // 点击内容区标题"👋 欢迎"也可回到欢迎页
+  noteTitle.addEventListener('click', function () {
+    if (!activePath) resetToWelcome()
+  })
+  noteTitle.style.cursor = 'pointer'
+
   loadData()
 
 })()
