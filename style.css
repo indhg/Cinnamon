@@ -396,7 +396,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* 品牌名 */
 .welcome-brand {
-  font-size: 1.9rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--heading);
   letter-spacing: 2px;
