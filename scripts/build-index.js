@@ -119,15 +119,35 @@ function scanDir (dirPath) {
     }
   }
 
-  // 排序
-  folders.sort((a, b) => a.name.localeCompare(b.name, 'zh'))
-  notes.sort((a, b) => a.name.localeCompare(b.name, 'zh'))
+  // --- 读取本目录的 index.json（可选排序配置）---
+  let orderList = []
+  const indexFile = path.join(dirPath, 'index.json')
+  if (fs.existsSync(indexFile)) {
+    try {
+      const cfg = JSON.parse(fs.readFileSync(indexFile, 'utf-8'))
+      if (Array.isArray(cfg.order)) orderList = cfg.order
+    } catch (_) { /* 忽略解析错误 */ }
+  }
 
-  // 对每个 .one 主笔记的子节点也排序
+  // 排序：orderList 中的按指定顺序排前面，其余按拼音
+  function sortByOrder (arr) {
+    const rank = new Map(orderList.map((name, i) => [name, i]))
+    arr.sort((a, b) => {
+      const ra = rank.has(a.name) ? rank.get(a.name) : 9999
+      const rb = rank.has(b.name) ? rank.get(b.name) : 9999
+      if (ra !== rb) return ra - rb
+      return a.name.localeCompare(b.name, 'zh')
+    })
+  }
+
+  sortByOrder(folders)
+  sortByOrder(notes)
+
+  // 对每个笔记的子节点也应用排序
+
+  // 对每个笔记的子节点也应用排序
   for (const n of notes) {
-    if (n.children) {
-      n.children.sort((a, b) => a.name.localeCompare(b.name, 'zh'))
-    }
+    if (n.children) sortByOrder(n.children)
   }
 
   return [...folders, ...notes]
