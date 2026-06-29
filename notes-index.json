@@ -1,6 +1,78 @@
 {
-  "updated": "2026-06-29T12:27:43.300Z",
+  "updated": "2026-06-29T12:51:12.995Z",
   "tree": [
+    {
+      "name": "大学物理（甲）Ⅰ",
+      "type": "folder",
+      "path": "大学物理（甲）Ⅰ",
+      "children": [
+        {
+          "name": "公式整理",
+          "type": "note",
+          "path": "大学物理（甲）Ⅰ",
+          "pdf": "notes/大学物理（甲）Ⅰ/公式整理.pdf",
+          "one": "notes/大学物理（甲）Ⅰ/公式整理.one"
+        }
+      ]
+    },
+    {
+      "name": "机械制图及CAD基础",
+      "type": "folder",
+      "path": "机械制图及CAD基础",
+      "children": [
+        {
+          "name": "机械制图及CAD基础",
+          "type": "note",
+          "path": "机械制图及CAD基础",
+          "pdf": null,
+          "one": "notes/机械制图及CAD基础/机械制图及CAD基础.one",
+          "children": [
+            {
+              "name": "表面结构要求",
+              "type": "note",
+              "path": "机械制图及CAD基础",
+              "pdf": "notes/机械制图及CAD基础/表面结构要求.pdf",
+              "one": null
+            },
+            {
+              "name": "读装配图拆画零件图",
+              "type": "note",
+              "path": "机械制图及CAD基础",
+              "pdf": "notes/机械制图及CAD基础/读装配图拆画零件图.pdf",
+              "one": null
+            },
+            {
+              "name": "极限与配合、几何公差",
+              "type": "note",
+              "path": "机械制图及CAD基础",
+              "pdf": "notes/机械制图及CAD基础/极限与配合、几何公差.pdf",
+              "one": null
+            },
+            {
+              "name": "期末题型",
+              "type": "note",
+              "path": "机械制图及CAD基础",
+              "pdf": "notes/机械制图及CAD基础/期末题型.pdf",
+              "one": null
+            },
+            {
+              "name": "装配结构的合理设计",
+              "type": "note",
+              "path": "机械制图及CAD基础",
+              "pdf": "notes/机械制图及CAD基础/装配结构的合理设计.pdf",
+              "one": null
+            },
+            {
+              "name": "装配图的作用、内容与表达",
+              "type": "note",
+              "path": "机械制图及CAD基础",
+              "pdf": "notes/机械制图及CAD基础/装配图的作用、内容与表达.pdf",
+              "one": null
+            }
+          ]
+        }
+      ]
+    },
     {
       "name": "普通化学实验（乙）",
       "type": "folder",
