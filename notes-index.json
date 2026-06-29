@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-29T12:51:12.995Z",
+  "updated": "2026-06-29T13:31:31.831Z",
   "tree": [
     {
       "name": "大学物理（甲）Ⅰ",
@@ -35,13 +35,6 @@
               "one": null
             },
             {
-              "name": "读装配图拆画零件图",
-              "type": "note",
-              "path": "机械制图及CAD基础",
-              "pdf": "notes/机械制图及CAD基础/读装配图拆画零件图.pdf",
-              "one": null
-            },
-            {
               "name": "极限与配合、几何公差",
               "type": "note",
               "path": "机械制图及CAD基础",
@@ -49,10 +42,10 @@
               "one": null
             },
             {
-              "name": "期末题型",
+              "name": "装配图的作用、内容与表达",
               "type": "note",
               "path": "机械制图及CAD基础",
-              "pdf": "notes/机械制图及CAD基础/期末题型.pdf",
+              "pdf": "notes/机械制图及CAD基础/装配图的作用、内容与表达.pdf",
               "one": null
             },
             {
@@ -63,10 +56,17 @@
               "one": null
             },
             {
-              "name": "装配图的作用、内容与表达",
+              "name": "读装配图拆画零件图",
               "type": "note",
               "path": "机械制图及CAD基础",
-              "pdf": "notes/机械制图及CAD基础/装配图的作用、内容与表达.pdf",
+              "pdf": "notes/机械制图及CAD基础/读装配图拆画零件图.pdf",
+              "one": null
+            },
+            {
+              "name": "期末题型",
+              "type": "note",
+              "path": "机械制图及CAD基础",
+              "pdf": "notes/机械制图及CAD基础/期末题型.pdf",
               "one": null
             }
           ]
