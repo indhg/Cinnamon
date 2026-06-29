@@ -225,29 +225,22 @@ button { font-family: inherit; cursor: pointer; }
 /* 层级缩进 */
 .tree-row .indent { flex-shrink: 0; }
 
-/* 展开/折叠箭头 */
+/* 展开/折叠箭头 — CSS 三角形 */
 .tree-row .arrow {
-  width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 0;
+  height: 0;
   flex-shrink: 0;
-  font-size: .55rem;
-  color: #C0A0A0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid #C0A0A0;
+  margin-right: 2px;
   transition: transform .2s;
 }
 
-.tree-row.active .arrow { color: #fff; }
+.tree-row.active .arrow { border-left-color: #fff; }
 
 .tree-row .arrow.expanded {
   transform: rotate(90deg);
-}
-
-/* 图标 */
-.tree-row .icon {
-  flex-shrink: 0;
-  font-size: .85rem;
 }
 
 /* 标签文字 */

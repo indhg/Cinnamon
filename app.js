@@ -110,25 +110,16 @@
 
     // 缩进（仅叶子节点需要额外对齐，文件夹已有箭头占位）
     if (!isFolder) {
-      row.style.paddingLeft = (12 + depth * 18 + 16) + 'px' // 补偿没有箭头
+      row.style.paddingLeft = (12 + depth * 18 + 10) + 'px' // 对齐文件夹文字
     }
 
-    // 箭头（仅文件夹）
+    // 箭头（仅文件夹）- 用 CSS 三角形替代 emoji
     if (isFolder) {
       const arrow = document.createElement('span')
       arrow.className = 'arrow'
       if (expandedPaths.has(path)) arrow.classList.add('expanded')
-      arrow.textContent = '▶'
       row.appendChild(arrow)
     }
-
-    // 图标
-    const icon = document.createElement('span')
-    icon.className = 'icon'
-    icon.textContent = isFolder
-      ? (expandedPaths.has(path) ? '📂' : '📁')
-      : '📄'
-    row.appendChild(icon)
 
     // 标签
     const label = document.createElement('span')
