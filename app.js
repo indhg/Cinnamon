@@ -183,7 +183,7 @@
       </div>
       <div class="welcome-divider"></div>
       <div class="welcome-preface">
-        <!-- 在这里添加序言内容 -->
+        索琳肉桂卷（Cinnamon Rollyn）是Terraria 众神之怒MOD 中的一种食物，能提供非常强力的buff。
       </div>
       <p class="welcome-hint">📂 左侧选择笔记即可预览</p>
     </div>`
