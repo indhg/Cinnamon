@@ -98,6 +98,8 @@
     if (!nodeHasMatch(node, query)) return null
 
     const isFolder = node.type === 'folder'
+    const hasKids = !!(node.children && node.children.length)  // .one 主笔记有子节点
+    const isExpandable = isFolder || hasKids
     const path = node.path || node.name
 
     const wrapper = document.createElement('div')
@@ -108,13 +110,13 @@
     row.style.paddingLeft = (12 + depth * 18) + 'px'
     row.dataset.path = path
 
-    // 缩进（仅叶子节点需要额外对齐，文件夹已有箭头占位）
-    if (!isFolder) {
-      row.style.paddingLeft = (12 + depth * 18 + 10) + 'px' // 对齐文件夹文字
+    // 纯叶子节点额外缩进（补偿没有箭头）
+    if (!isExpandable) {
+      row.style.paddingLeft = (12 + depth * 18 + 10) + 'px'
     }
 
-    // 箭头（仅文件夹）- 用 CSS 三角形替代 emoji
-    if (isFolder) {
+    // 箭头（可展开节点）
+    if (isExpandable) {
       const arrow = document.createElement('span')
       arrow.className = 'arrow'
       if (expandedPaths.has(path)) arrow.classList.add('expanded')
@@ -125,29 +127,41 @@
     const label = document.createElement('span')
     label.className = 'label'
     label.textContent = node.name
+    if (hasKids && node.one) {
+      const tag = document.createElement('span')
+      tag.className = 'tag-main'
+      tag.textContent = '· 主笔记'
+      label.appendChild(tag)
+    }
     row.appendChild(label)
 
     // 点击
     row.addEventListener('click', (e) => {
       e.stopPropagation()
-      if (isFolder) {
+      if (isExpandable) {
         toggleFolder(path)
-      } else {
+      }
+      // 如果笔记有可预览/下载的内容，同时选中
+      if (node.pdf || node.one) {
         selectNote(node)
         if (window.innerWidth <= 768) closeSidebar()
       }
     })
 
-    // 高亮当前激活的行
-    if (!isFolder && activePath === node.pdf) {
+    // 高亮激活行
+    if (!isExpandable && activePath === node.pdf) {
+      row.classList.add('active')
+    }
+    if (hasKids && activePath === (node.one || node.pdf)) {
       row.classList.add('active')
     }
 
     wrapper.appendChild(row)
 
     // 子节点
-    if (isFolder && node.children && expandedPaths.has(path)) {
-      node.children.forEach(child => {
+    if (isExpandable && expandedPaths.has(path)) {
+      const kids = isFolder ? node.children : node.children
+      kids.forEach(child => {
         const childEl = renderNode(child, depth + 1, query)
         if (childEl) wrapper.appendChild(childEl)
       })

@@ -250,6 +250,13 @@ button { font-family: inherit; cursor: pointer; }
   white-space: nowrap;
 }
 
+/* （主笔记）标记 */
+.tag-main {
+  font-size: .7rem;
+  color: var(--accent);
+  margin-left: 4px;
+}
+
 /* 空状态 */
 .tree-empty {
   padding: 40px 20px;
