@@ -14,6 +14,7 @@
   const pdfViewer  = document.getElementById('pdfViewer')
   const noteTitle  = document.getElementById('noteTitle')
   const btnDownload = document.getElementById('btnDownload')
+  const prefaceNav  = document.getElementById('prefaceNav')
 
   // --- 状态 ---
   let noteTree   = []        // 完整的笔记树
@@ -189,20 +190,53 @@
         </div>
         <div class="welcome-divider"></div>
         <div class="welcome-preface">
-          索琳肉桂卷（Cinnamon Rollyn）是Terraria 众神之怒MOD 中的一种食物，能提供非常强力的buff。
+          <p><strong>温馨提示：</strong>Cinnamon 支持 <strong>.one</strong> 与 <strong>.pdf</strong> 两种格式的笔记。其中，PDF 支持在线预览，但由于文件由 .one 导出，其清晰度与浏览体验与 .one 文件有一定出入；OneNote 文件更清晰，高度自定义，支持自由删改，但不支持在线预览，且需要 OneNote 打开。请读者自行取舍喵。</p>
+
+          <p>索琳肉桂卷（Cinnamon Rollyn）是 Terraria 众神之怒 MOD 中的一种食物，食用后，会给予玩家饱如巨星增益，可看作酒足饭饱增益的更强版本。</p>
+
+          <p>做笔记分享的初衷很简单：督促自己抓紧复习，给散漫的日子挂一个无形的 ddl。没人催你，但你知道这里还有东西没整理完。</p>
+
+          <p>我把笔记放在这里，是想给后来的同学铺一段不那么崎岖的路，也给自己挂一个温柔的催促：该复习了。更是对匆忙的大学生活的一个记录——日子过得太快，有些东西不趁热记下来，转眼就忘了。</p>
+
+          <p>帮你期末补天的，也许是我的一份笔记，也许是其他前辈的资料——但说到底，是那个认真坐下来复习的你自己。</p>
+
+          <p class="preface-quote">「在这众神之怒中，总有人要成为你的超级巨星。」——索琳</p>
         </div>
         <p class="welcome-hint">左侧选择笔记即可预览</p>
+        <p class="welcome-counter">
+          <span id="busuanzi_container_site_uv">👀 被 <span id="busuanzi_value_site_uv"></span> 人浏览过</span>
+        </p>
       </div>
     </div>`
 
   // --- 恢复欢迎区 ---
+  // 序言面板是否可见
+  let prefaceVisible = true
+
   function resetToWelcome () {
     activePath = null
     meowCount = 1
     noteTitle.textContent = '欢迎喵'
     btnDownload.style.display = 'none'
     pdfViewer.innerHTML = WELCOME_HTML
+    // 回退时默认隐藏文字面板，只显示背景
+    setPrefaceVisible(false)
     renderTree(searchEl.value)
+  }
+
+  // 切换序言文字面板的显示/隐藏
+  function togglePreface () {
+    setPrefaceVisible(!prefaceVisible)
+  }
+
+  function setPrefaceVisible (show) {
+    prefaceVisible = show
+    const inner = document.getElementById('welcomeArea')
+    if (!inner) return
+    const panel = inner.querySelector('.welcome-inner')
+    if (panel) {
+      panel.style.display = show ? '' : 'none'
+    }
   }
 
   // --- 选中笔记 ---
@@ -290,6 +324,18 @@
   })
 
   // --- 启动 ---
+  // 侧边栏「序言」→ 切换文字面板
+  prefaceNav.addEventListener('click', function () {
+    // 如果正在看笔记，先回到欢迎页
+    if (activePath) {
+      resetToWelcome()
+      setPrefaceVisible(true)  // 从笔记点序言 → 显示文字
+    } else {
+      togglePreface()           // 已经在欢迎页 → 切换
+    }
+    if (window.innerWidth <= 768) closeSidebar()
+  })
+
   // 点击侧边栏品牌名 → 回到欢迎页
   document.querySelector('.sidebar-header .brand-sm').addEventListener('click', resetToWelcome)
 

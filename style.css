@@ -188,6 +188,26 @@ button { font-family: inherit; cursor: pointer; }
   color: #C0B0B0;
 }
 
+/* 序言导航入口 */
+.preface-nav {
+  padding: 10px 20px;
+  font-size: .9rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: background .12s;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.preface-nav:hover {
+  background: var(--hover);
+}
+
+.preface-nav-icon {
+  font-size: .8rem;
+  margin-right: 4px;
+}
+
 /* 树形导航 */
 .tree {
   flex: 1;
@@ -359,7 +379,7 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   justify-content: center;
   padding: 0;
-  background-image: url('images/若叶睦.png');
+  background-image: url('images/索琳.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -367,10 +387,10 @@ button { font-family: inherit; cursor: pointer; }
 
 /* 欢迎内容面板（半透明底，让背景图上的文字可读） */
 .welcome-inner {
-  background: rgba(255, 251, 247, 0.85);
+  background: rgba(255, 251, 247, 0.55);
   border-radius: 12px;
   padding: 32px 40px;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
 }
 
 /* 品牌名 */
@@ -414,11 +434,25 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--heading);
 }
 
+/* 序言引用 */
+.preface-quote {
+  color: var(--accent);
+  font-style: italic;
+  margin-top: 4px;
+}
+
 /* 提示文字 */
 .welcome-hint {
   font-size: .85rem;
   color: #B8A0A0;
   margin-top: 8px;
+}
+
+/* 访问计数器 */
+.welcome-counter {
+  font-size: .8rem;
+  color: #C0A8A8;
+  margin-top: 12px;
 }
   line-height: 1.7;
 }
