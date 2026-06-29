@@ -183,19 +183,22 @@
   // --- 欢迎区 HTML（用于恢复初始状态）---
   const WELCOME_HTML = `
     <div class="welcome-placeholder" id="welcomeArea">
-      <div class="welcome-brand">
-        红云irch的肉桂卷
+      <div class="welcome-inner">
+        <div class="welcome-brand">
+          红云irch的肉桂卷
+        </div>
+        <div class="welcome-divider"></div>
+        <div class="welcome-preface">
+          索琳肉桂卷（Cinnamon Rollyn）是Terraria 众神之怒MOD 中的一种食物，能提供非常强力的buff。
+        </div>
+        <p class="welcome-hint">左侧选择笔记即可预览</p>
       </div>
-      <div class="welcome-divider"></div>
-      <div class="welcome-preface">
-        索琳肉桂卷（Cinnamon Rollyn）是Terraria 众神之怒MOD 中的一种食物，能提供非常强力的buff。
-      </div>
-      <p class="welcome-hint">左侧选择笔记即可预览</p>
     </div>`
 
   // --- 恢复欢迎区 ---
   function resetToWelcome () {
     activePath = null
+    meowCount = 1
     noteTitle.textContent = '欢迎喵'
     btnDownload.style.display = 'none'
     pdfViewer.innerHTML = WELCOME_HTML
@@ -290,9 +293,13 @@
   // 点击侧边栏品牌名 → 回到欢迎页
   document.querySelector('.sidebar-header .brand-sm').addEventListener('click', resetToWelcome)
 
-  // 点击内容区标题"👋 欢迎"也可回到欢迎页
+  // 点击内容区标题：每次多加一个喵，最多 10 个
+  let meowCount = 1
   noteTitle.addEventListener('click', function () {
-    if (!activePath) resetToWelcome()
+    if (activePath) return  // 有笔记选中时不触发
+    if (meowCount < 10) meowCount++
+    else meowCount = 1      // 超过 10 个回到 1 个
+    noteTitle.textContent = '欢迎' + '喵'.repeat(meowCount)
   })
   noteTitle.style.cursor = 'pointer'
 
