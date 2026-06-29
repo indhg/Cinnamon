@@ -179,13 +179,13 @@
   const WELCOME_HTML = `
     <div class="welcome-placeholder" id="welcomeArea">
       <div class="welcome-brand">
-        红云<span class="accent">irch</span>的肉桂卷
+        红云irch的肉桂卷
       </div>
       <div class="welcome-divider"></div>
       <div class="welcome-preface">
         索琳肉桂卷（Cinnamon Rollyn）是Terraria 众神之怒MOD 中的一种食物，能提供非常强力的buff。
       </div>
-      <p class="welcome-hint">📂 左侧选择笔记即可预览</p>
+      <p class="welcome-hint">左侧选择笔记即可预览</p>
     </div>`
 
   // --- 恢复欢迎区 ---
