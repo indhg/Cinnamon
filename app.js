@@ -224,6 +224,7 @@
   function resetToWelcome () {
     activePath = null
     meowCount = 1
+    meowDone  = false
     noteTitle.textContent = '欢迎喵'
     btnDownload.style.display = 'none'
     pdfViewer.innerHTML = WELCOME_HTML
@@ -349,11 +350,17 @@
 
   // 点击内容区标题：每次多加一个喵，最多 10 个
   let meowCount = 1
+  let meowDone  = false  // 是否已经变成「小猫哈气」
   noteTitle.addEventListener('click', function () {
-    if (activePath) return  // 有笔记选中时不触发
-    if (meowCount < 10) meowCount++
-    else meowCount = 1      // 超过 10 个回到 1 个
-    noteTitle.textContent = '欢迎' + '喵'.repeat(meowCount)
+    if (activePath) return
+    if (meowDone) return  // 已结束，不再变化
+    if (meowCount < 30) {
+      meowCount++
+      noteTitle.textContent = '欢迎' + '喵'.repeat(meowCount)
+    } else {
+      noteTitle.textContent = '小猫哈气！'
+      meowDone = true
+    }
   })
   noteTitle.style.cursor = 'pointer'
 
