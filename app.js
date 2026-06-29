@@ -25,8 +25,8 @@
   async function loadData () {
     try {
       const [idxRes, subRes] = await Promise.all([
-        fetch('notes-index.json'),
-        fetch('subjects.json')
+        fetch('notes-index.json?v=' + Date.now()),
+        fetch('subjects.json?v=' + Date.now())
       ])
       if (!idxRes.ok) throw new Error('notes-index.json 加载失败')
       const idx = await idxRes.json()
