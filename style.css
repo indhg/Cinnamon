@@ -1,0 +1,436 @@
+/* ============================================================
+   Cinnamon — 红云irch的肉桂卷
+   配色方案：粉棕暖卷（方案 B）
+   ============================================================ */
+
+/* --- CSS 变量 --- */
+:root {
+  --bg:        #FFFBF7;      /* 页面背景 · 奶油白 */
+  --sidebar:   #FFEEEC;      /* 侧边栏背景 · 淡粉米 */
+  --accent:    rgb(254,151,151); /* 强调色 · 你的粉色 */
+  --heading:   #7B5B5B;      /* 标题 · 暖棕 */
+  --text:      #3E2723;      /* 正文 · 深棕 */
+  --hover:     #FFE4E1;      /* 悬停 · 浅粉 */
+  --border:    #EDD5D0;      /* 分隔线 · 灰粉 */
+  --shadow:    0 2px 12px rgba(120,80,60,.08);
+  --radius:    8px;
+
+  /* 侧边栏尺寸 */
+  --sidebar-w: 260px;
+  --topbar-h:   48px;
+
+  /* 字体 */
+  --font: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
+}
+
+/* --- 基础重置 --- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ============================================================
+   首页 (index.html)
+   ============================================================ */
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.homepage .brand {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.homepage .brand .accent {
+  color: var(--accent);
+}
+
+.homepage .divider {
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+  margin: 20px auto;
+  border-radius: 1px;
+}
+
+/* 序言区域 — 你可以在这里自由添加文字、链接、图片 */
+.homepage .preface {
+  max-width: 520px;
+  margin: 16px auto 32px;
+  font-size: 1rem;
+  color: #8B7B7B;
+  line-height: 1.8;
+}
+
+.homepage .preface a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.homepage .preface a:hover {
+  color: var(--heading);
+}
+
+/* 首页按钮 */
+.homepage .btn-enter {
+  display: inline-block;
+  padding: 12px 36px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 14px rgba(254,151,151,.35);
+}
+
+.homepage .btn-enter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(254,151,151,.5);
+}
+
+/* ============================================================
+   笔记页 (notes.html) — 整体布局
+   ============================================================ */
+.notes-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --- 顶栏 --- */
+.topbar {
+  display: none; /* 桌面端隐藏，移动端显示 */
+}
+
+/* --- 侧边栏 --- */
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  height: 100vh;
+  background: var(--sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.sidebar-header {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.sidebar-header .brand-sm {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.sidebar-header .back-link {
+  font-size: .75rem;
+  color: #B0A0A0;
+  margin-top: 2px;
+  display: inline-block;
+}
+
+.sidebar-header .back-link:hover {
+  color: var(--accent);
+}
+
+/* 搜索框 */
+.search-wrap {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.search-wrap input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  font-size: .85rem;
+  font-family: var(--font);
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s;
+}
+
+.search-wrap input:focus {
+  border-color: var(--accent);
+}
+
+.search-wrap input::placeholder {
+  color: #C0B0B0;
+}
+
+/* 树形导航 */
+.tree {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px 0 20px;
+}
+
+.tree::-webkit-scrollbar { width: 4px; }
+.tree::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* 树节点 */
+.tree-node { user-select: none; }
+
+.tree-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 16px 7px 12px;
+  cursor: pointer;
+  font-size: .9rem;
+  transition: background .12s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tree-row:hover { background: var(--hover); }
+
+.tree-row.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* 层级缩进 */
+.tree-row .indent { flex-shrink: 0; }
+
+/* 展开/折叠箭头 */
+.tree-row .arrow {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: .55rem;
+  color: #C0A0A0;
+  transition: transform .2s;
+}
+
+.tree-row.active .arrow { color: #fff; }
+
+.tree-row .arrow.expanded {
+  transform: rotate(90deg);
+}
+
+/* 图标 */
+.tree-row .icon {
+  flex-shrink: 0;
+  font-size: .85rem;
+}
+
+/* 标签文字 */
+.tree-row .label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 空状态 */
+.tree-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: #C0B0B0;
+  font-size: .85rem;
+}
+
+/* --- 内容区 --- */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #fff;
+}
+
+/* 内容顶栏（桌面端显示品牌名） */
+.content-topbar {
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.content-topbar .note-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.content-topbar .actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* 按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 18px;
+  border-radius: 18px;
+  font-size: .85rem;
+  border: none;
+  transition: background .2s, transform .1s;
+}
+
+.btn:active { transform: scale(.97); }
+
+.btn-download {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-download:hover { background: #F08A8A; }
+
+.btn-back {
+  background: transparent;
+  color: #B0A0A0;
+  font-size: .8rem;
+  padding: 6px 12px;
+}
+
+.btn-back:hover { color: var(--accent); }
+
+/* PDF 预览区 */
+.pdf-viewer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FDFAF7;
+  overflow: hidden;
+  position: relative;
+}
+
+.pdf-viewer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 欢迎占位 */
+.welcome-placeholder {
+  text-align: center;
+  color: #C0B0B0;
+}
+
+.welcome-placeholder .icon-big {
+  font-size: 4rem;
+  margin-bottom: 12px;
+}
+
+.welcome-placeholder p {
+  font-size: .95rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   移动端
+   ============================================================ */
+@media (max-width: 768px) {
+  /* 首页 */
+  .homepage .brand { font-size: 1.6rem; }
+
+  /* 笔记页 — 侧边栏默认隐藏 */
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+    box-shadow: var(--shadow);
+  }
+
+  .sidebar.open { transform: translateX(0); }
+
+  /* 遮罩 */
+  .sidebar-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,.25);
+    z-index: 5;
+    display: none;
+  }
+
+  .sidebar-overlay.show { display: block; }
+
+  /* 顶栏 */
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--sidebar);
+    flex-shrink: 0;
+  }
+
+  .topbar .hamburger {
+    font-size: 1.3rem;
+    background: none;
+    border: none;
+    color: var(--heading);
+    padding: 4px;
+  }
+
+  .topbar .brand-sm {
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--heading);
+  }
+
+  /* 内容区 */
+  .content-topbar {
+    padding: 8px 16px;
+  }
+
+  .content-topbar .note-title {
+    font-size: .9rem;
+  }
+}
+
+/* ============================================================
+   背景图支持 — 以后想加背景图，取消下面注释并替换 URL 即可
+   ============================================================ */
+/*
+body {
+  background-image: url('你的图片地址.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+*/

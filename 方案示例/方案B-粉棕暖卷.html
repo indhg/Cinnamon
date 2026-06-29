@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案B · 粉棕暖卷</title>
+<style>
+  :root {
+    --bg:        #FFFBF7;
+    --sidebar:   #FFEEEC;
+    --accent:    rgb(254, 151, 151);
+    --heading:   #7B5B5B;
+    --text:      #3E2723;
+    --hover:     #FFE4E1;
+    --border:    #EDD5D0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: var(--bg); color: var(--text);
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh; padding: 20px;
+  }
+  .demo-wrap {
+    max-width: 960px; width: 100%;
+    background: #fff; border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(120,80,60,.10);
+    overflow: hidden;
+  }
+  .demo-header {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .demo-header h1 { font-size: 1.3rem; color: var(--heading); }
+  .demo-header .tag {
+    font-size: .75rem; background: var(--accent); color: #fff;
+    padding: 3px 10px; border-radius: 12px;
+  }
+  .demo-body { display: flex; min-height: 420px; }
+  /* 侧边栏 */
+  .sidebar {
+    width: 220px; background: var(--sidebar); padding: 16px 0;
+    border-right: 1px solid var(--border); flex-shrink: 0;
+  }
+  .sidebar .title {
+    padding: 8px 20px; font-size: .8rem; color: var(--heading);
+    font-weight: bold; letter-spacing: 1px;
+  }
+  .sidebar .item {
+    padding: 9px 20px 9px 28px; cursor: pointer; font-size: .9rem;
+    transition: background .15s; display: flex; align-items: center; gap: 6px;
+  }
+  .sidebar .item:hover { background: var(--hover); }
+  .sidebar .item.active { background: var(--accent); color: #fff; }
+  .sidebar .item .arrow { font-size: .6rem; width: 12px; }
+  /* 内容区 */
+  .content {
+    flex: 1; padding: 24px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .content .placeholder {
+    width: 100%; max-width: 400px; height: 220px;
+    background: var(--bg); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #ddd; font-size: 2rem;
+    border: 2px dashed var(--border);
+  }
+  .btn {
+    margin-top: 16px; padding: 10px 28px;
+    background: var(--accent); color: #fff; border: none;
+    border-radius: 8px; font-size: .95rem; cursor: pointer;
+  }
+  /* 色板 */
+  .palette {
+    display: flex; gap: 8px; padding: 16px 28px;
+    border-top: 1px solid var(--border); flex-wrap: wrap;
+  }
+  .swatch {
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .swatch .chip {
+    width: 48px; height: 48px; border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  .swatch .label { font-size: .65rem; color: #999; }
+  .desc {
+    padding: 0 28px 20px; font-size: .85rem; color: #999; line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<div class="demo-wrap">
+  <div class="demo-header">
+    <h1>📝 红云irch的肉桂卷</h1>
+    <span class="tag">方案B</span>
+  </div>
+  <div class="demo-body">
+    <!-- 侧边栏模拟 -->
+    <nav class="sidebar">
+      <div class="title">📚 科目</div>
+      <div class="item"><span class="arrow">▶</span> 数学</div>
+      <div class="item active"><span class="arrow">▼</span> 普通化学实验（乙）</div>
+      <div class="item" style="padding-left:40px;">📄 实验一 · 基本操作</div>
+      <div class="item" style="padding-left:40px;">📄 实验二 · 滴定分析</div>
+      <div class="item"><span class="arrow">▶</span> 物理</div>
+      <div class="item"><span class="arrow">▶</span> 读书笔记</div>
+    </nav>
+    <!-- 内容区 -->
+    <div class="content">
+      <div class="placeholder">📄 PDF 预览区</div>
+      <button class="btn">📥 下载 .one 文件</button>
+    </div>
+  </div>
+  <div class="palette">
+    <div class="swatch"><div class="chip" style="background:#FFFBF7"></div><span class="label">背景</span></div>
+    <div class="swatch"><div class="chip" style="background:#FFEEEC"></div><span class="label">侧边栏</span></div>
+    <div class="swatch"><div class="chip" style="background:#FFE4E1"></div><span class="label">悬停</span></div>
+    <div class="swatch"><div class="chip" style="background:rgb(254,151,151)"></div><span class="label">强调色</span></div>
+    <div class="swatch"><div class="chip" style="background:#7B5B5B"></div><span class="label">标题</span></div>
+    <div class="swatch"><div class="chip" style="background:#3E2723"></div><span class="label">正文</span></div>
+  </div>
+  <div class="desc">💡 <b>感觉：</b>温暖、自然，像面包房的灯光下翻一本旧笔记。粉色 ＋ 暖棕呼应"肉桂卷"，更有质感。</div>
+</div>
+</body>
+</html>
