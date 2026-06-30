@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30T03:21:07.184Z",
+  "updated": "2026-06-30T03:26:27.131Z",
   "tree": [
     {
       "name": "大学物理（甲）Ⅰ",
@@ -21,80 +21,94 @@
       "path": "机械制图及CAD基础",
       "children": [
         {
-          "name": "样卷",
+          "name": "日常课程",
           "type": "folder",
-          "path": "机械制图及CAD基础/样卷",
+          "path": "机械制图及CAD基础/日常课程",
           "children": [
             {
-              "name": "17-18 夏 机械制图及CAD（答案1）",
+              "name": "机械制图及CAD基础",
               "type": "note",
-              "path": "机械制图及CAD基础/样卷",
-              "pdf": "notes/机械制图及CAD基础/样卷/17-18 夏 机械制图及CAD（答案1）.pdf",
-              "one": null
-            },
-            {
-              "name": "17-18 夏 机械制图及CAD（答案2）",
-              "type": "note",
-              "path": "机械制图及CAD基础/样卷",
-              "pdf": "notes/机械制图及CAD基础/样卷/17-18 夏 机械制图及CAD（答案2）.pdf",
-              "one": null
-            },
-            {
-              "name": "17-18 夏 机械制图及CAD（样卷）",
-              "type": "note",
-              "path": "机械制图及CAD基础/样卷",
-              "pdf": "notes/机械制图及CAD基础/样卷/17-18 夏 机械制图及CAD（样卷）.pdf",
-              "one": null
+              "path": "机械制图及CAD基础/日常课程",
+              "pdf": null,
+              "one": "notes/机械制图及CAD基础/日常课程/机械制图及CAD基础.one",
+              "children": [
+                {
+                  "name": "表面结构要求",
+                  "type": "note",
+                  "path": "机械制图及CAD基础/日常课程",
+                  "pdf": "notes/机械制图及CAD基础/日常课程/表面结构要求.pdf",
+                  "one": null
+                },
+                {
+                  "name": "极限与配合、几何公差",
+                  "type": "note",
+                  "path": "机械制图及CAD基础/日常课程",
+                  "pdf": "notes/机械制图及CAD基础/日常课程/极限与配合、几何公差.pdf",
+                  "one": null
+                },
+                {
+                  "name": "装配图的作用、内容与表达",
+                  "type": "note",
+                  "path": "机械制图及CAD基础/日常课程",
+                  "pdf": "notes/机械制图及CAD基础/日常课程/装配图的作用、内容与表达.pdf",
+                  "one": null
+                },
+                {
+                  "name": "装配结构的合理设计",
+                  "type": "note",
+                  "path": "机械制图及CAD基础/日常课程",
+                  "pdf": "notes/机械制图及CAD基础/日常课程/装配结构的合理设计.pdf",
+                  "one": null
+                },
+                {
+                  "name": "读装配图拆画零件图",
+                  "type": "note",
+                  "path": "机械制图及CAD基础/日常课程",
+                  "pdf": "notes/机械制图及CAD基础/日常课程/读装配图拆画零件图.pdf",
+                  "one": null
+                }
+              ]
             }
           ]
         },
         {
-          "name": "机械制图及CAD基础",
-          "type": "note",
-          "path": "机械制图及CAD基础",
-          "pdf": null,
-          "one": "notes/机械制图及CAD基础/机械制图及CAD基础.one",
+          "name": "期末考试",
+          "type": "folder",
+          "path": "机械制图及CAD基础/期末考试",
           "children": [
             {
-              "name": "表面结构要求",
-              "type": "note",
-              "path": "机械制图及CAD基础",
-              "pdf": "notes/机械制图及CAD基础/表面结构要求.pdf",
-              "one": null
-            },
-            {
-              "name": "极限与配合、几何公差",
-              "type": "note",
-              "path": "机械制图及CAD基础",
-              "pdf": "notes/机械制图及CAD基础/极限与配合、几何公差.pdf",
-              "one": null
-            },
-            {
-              "name": "装配图的作用、内容与表达",
-              "type": "note",
-              "path": "机械制图及CAD基础",
-              "pdf": "notes/机械制图及CAD基础/装配图的作用、内容与表达.pdf",
-              "one": null
-            },
-            {
-              "name": "装配结构的合理设计",
-              "type": "note",
-              "path": "机械制图及CAD基础",
-              "pdf": "notes/机械制图及CAD基础/装配结构的合理设计.pdf",
-              "one": null
-            },
-            {
-              "name": "读装配图拆画零件图",
-              "type": "note",
-              "path": "机械制图及CAD基础",
-              "pdf": "notes/机械制图及CAD基础/读装配图拆画零件图.pdf",
-              "one": null
+              "name": "样卷",
+              "type": "folder",
+              "path": "机械制图及CAD基础/期末考试/样卷",
+              "children": [
+                {
+                  "name": "17-18 夏 机械制图及CAD（答案1）",
+                  "type": "note",
+                  "path": "机械制图及CAD基础/期末考试/样卷",
+                  "pdf": "notes/机械制图及CAD基础/期末考试/样卷/17-18 夏 机械制图及CAD（答案1）.pdf",
+                  "one": null
+                },
+                {
+                  "name": "17-18 夏 机械制图及CAD（答案2）",
+                  "type": "note",
+                  "path": "机械制图及CAD基础/期末考试/样卷",
+                  "pdf": "notes/机械制图及CAD基础/期末考试/样卷/17-18 夏 机械制图及CAD（答案2）.pdf",
+                  "one": null
+                },
+                {
+                  "name": "17-18 夏 机械制图及CAD（样卷）",
+                  "type": "note",
+                  "path": "机械制图及CAD基础/期末考试/样卷",
+                  "pdf": "notes/机械制图及CAD基础/期末考试/样卷/17-18 夏 机械制图及CAD（样卷）.pdf",
+                  "one": null
+                }
+              ]
             },
             {
               "name": "期末题型",
               "type": "note",
-              "path": "机械制图及CAD基础",
-              "pdf": "notes/机械制图及CAD基础/期末题型.pdf",
+              "path": "机械制图及CAD基础/期末考试",
+              "pdf": "notes/机械制图及CAD基础/期末考试/期末题型.pdf",
               "one": null
             }
           ]
