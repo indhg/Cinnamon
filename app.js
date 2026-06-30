@@ -14,6 +14,7 @@
   const pdfViewer  = document.getElementById('pdfViewer')
   const noteTitle  = document.getElementById('noteTitle')
   const btnDownload = document.getElementById('btnDownload')
+  const btnPptx     = document.getElementById('btnPptx')
   const prefaceNav  = document.getElementById('prefaceNav')
 
   // --- 状态 ---
@@ -227,6 +228,7 @@
     meowDone  = false
     noteTitle.textContent = '欢迎喵'
     btnDownload.style.display = 'none'
+    if (btnPptx) btnPptx.style.display = 'none'
     pdfViewer.innerHTML = WELCOME_HTML
     // 回退时默认隐藏文字面板，只显示背景
     setPrefaceVisible(false)
@@ -253,13 +255,22 @@
     activePath = node.pdf || null
     noteTitle.textContent = node.name
 
-    // 下载按钮
+    // 下载按钮 (.one)
     if (node.one) {
       btnDownload.style.display = 'inline-flex'
       btnDownload.href = node.one
       btnDownload.download = node.name + '.one'
     } else {
       btnDownload.style.display = 'none'
+    }
+
+    // PPTX 下载按钮
+    if (node.pptx && btnPptx) {
+      btnPptx.style.display = 'inline-flex'
+      btnPptx.href = node.pptx
+      btnPptx.download = node.name + '.pptx'
+    } else if (btnPptx) {
+      btnPptx.style.display = 'none'
     }
 
     // PDF 预览

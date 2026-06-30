@@ -39,15 +39,17 @@ function scanDir (dirPath) {
     }
   }
 
-  // --- 配对 PDF / .one ---
-  const pdfMap = new Map()   // basename -> filename
-  const oneMap = new Map()
+  // --- 配对 PDF / .one / .pptx ---
+  const pdfMap  = new Map()   // basename -> filename
+  const oneMap  = new Map()
+  const pptxMap = new Map()
 
   for (const f of files) {
     const ext  = path.extname(f).toLowerCase()
     const base = path.basename(f, ext)
-    if (ext === '.pdf') pdfMap.set(base, f)
-    if (ext === '.one') oneMap.set(base, f)
+    if (ext === '.pdf')  pdfMap.set(base, f)
+    if (ext === '.one')  oneMap.set(base, f)
+    if (ext === '.pptx') pptxMap.set(base, f)
   }
 
   const relDir = path.relative(NOTES_DIR, dirPath).replace(/\\/g, '/')
@@ -62,8 +64,9 @@ function scanDir (dirPath) {
       name: base,
       type: 'note',
       path: relDir,
-      pdf:  pdfMap.has(base) ? prefix + pdfMap.get(base) : null,
-      one:  oneMap.has(base) ? prefix + oneMap.get(base) : null
+      pdf:  pdfMap.has(base)  ? prefix + pdfMap.get(base)  : null,
+      one:  oneMap.has(base)  ? prefix + oneMap.get(base)  : null,
+      pptx: pptxMap.has(base) ? prefix + pptxMap.get(base) : null
     })
   }
 
@@ -80,7 +83,8 @@ function scanDir (dirPath) {
       type: 'note',
       path: s.path,
       pdf:  s.pdf,
-      one:  null
+      one:  null,
+      pptx: s.pptx || null
     }))
     // 从平级列表中移除孤儿 PDF（它们现在是子节点）
     for (const s of stray) {
@@ -100,7 +104,7 @@ function scanDir (dirPath) {
         if (score > bestScore) { bestScore = score; best = o }
       }
       if (best && bestScore > 0) {
-        best.children.push({ name: s.name, type: 'note', path: s.path, pdf: s.pdf, one: null })
+        best.children.push({ name: s.name, type: 'note', path: s.path, pdf: s.pdf, one: null, pptx: s.pptx || null })
       }
     }
     // 移除已被挂载的孤儿
