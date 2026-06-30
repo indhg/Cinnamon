@@ -219,7 +219,7 @@
 
   // --- 恢复欢迎区 ---
   // 序言面板是否可见
-  let prefaceVisible = true
+  let prefaceVisible = false
 
   function resetToWelcome () {
     activePath = null
