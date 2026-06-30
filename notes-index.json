@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-29T15:00:17.595Z",
+  "updated": "2026-06-30T02:13:10.309Z",
   "tree": [
     {
       "name": "大学物理（甲）Ⅰ",
@@ -20,6 +20,34 @@
       "type": "folder",
       "path": "机械制图及CAD基础",
       "children": [
+        {
+          "name": "样卷",
+          "type": "folder",
+          "path": "机械制图及CAD基础/样卷",
+          "children": [
+            {
+              "name": "17-18 夏 机械制图及CAD（答案1）",
+              "type": "note",
+              "path": "机械制图及CAD基础/样卷",
+              "pdf": "notes/机械制图及CAD基础/样卷/17-18 夏 机械制图及CAD（答案1）.pdf",
+              "one": null
+            },
+            {
+              "name": "17-18 夏 机械制图及CAD（答案2）",
+              "type": "note",
+              "path": "机械制图及CAD基础/样卷",
+              "pdf": "notes/机械制图及CAD基础/样卷/17-18 夏 机械制图及CAD（答案2）.pdf",
+              "one": null
+            },
+            {
+              "name": "17-18 夏 机械制图及CAD（样卷）",
+              "type": "note",
+              "path": "机械制图及CAD基础/样卷",
+              "pdf": "notes/机械制图及CAD基础/样卷/17-18 夏 机械制图及CAD（样卷）.pdf",
+              "one": null
+            }
+          ]
+        },
         {
           "name": "机械制图及CAD基础",
           "type": "note",
