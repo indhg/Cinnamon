@@ -16,6 +16,7 @@
   const btnDownload = document.getElementById('btnDownload')
   const btnPptx     = document.getElementById('btnPptx')
   const prefaceNav  = document.getElementById('prefaceNav')
+  const sidebarGif  = document.getElementById('sidebarGif')
 
   // --- 状态 ---
   let noteTree   = []        // 完整的笔记树
@@ -229,6 +230,7 @@
     noteTitle.textContent = '欢迎喵'
     btnDownload.style.display = 'none'
     if (btnPptx) btnPptx.style.display = 'none'
+    if (sidebarGif) sidebarGif.style.display = 'none'
     pdfViewer.innerHTML = WELCOME_HTML
     // 回退时默认隐藏文字面板，只显示背景
     setPrefaceVisible(false)
@@ -371,6 +373,7 @@
     } else {
       noteTitle.textContent = '小猫哈气！'
       meowDone = true
+      if (sidebarGif) sidebarGif.style.display = ''
     }
   })
   noteTitle.style.cursor = 'pointer'
