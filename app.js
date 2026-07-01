@@ -172,13 +172,20 @@
       row.style.paddingLeft = (12 + depth * 18 + 10) + 'px'
     }
 
-    // 书籍图标（可展开节点）
+    // 展开指示器：一级目录用书籍图标，子级用三角箭头
     if (isExpandable) {
-      const icon = document.createElement('img')
-      icon.className = 'book-icon'
-      if (expandedPaths.has(path)) icon.classList.add('expanded')
-      icon.src = getFolderIcon(path)
-      row.appendChild(icon)
+      if (depth === 0 && isFolder) {
+        const icon = document.createElement('img')
+        icon.className = 'book-icon'
+        if (expandedPaths.has(path)) icon.classList.add('expanded')
+        icon.src = getFolderIcon(path)
+        row.appendChild(icon)
+      } else {
+        const arrow = document.createElement('span')
+        arrow.className = 'arrow'
+        if (expandedPaths.has(path)) arrow.classList.add('expanded')
+        row.appendChild(arrow)
+      }
     }
 
     // 标签

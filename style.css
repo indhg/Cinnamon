@@ -318,7 +318,7 @@ button { font-family: inherit; cursor: pointer; }
 /* 层级缩进 */
 .tree-row .indent { flex-shrink: 0; }
 
-/* 展开/折叠 — 书籍图标 */
+/* 展开/折叠 — 书籍图标（仅一级目录） */
 .tree-row .book-icon {
   width: 18px;
   height: 18px;
@@ -331,6 +331,26 @@ button { font-family: inherit; cursor: pointer; }
 .tree-row .book-icon.expanded {
   transform: scale(1.15);
   filter: brightness(1.1);
+}
+
+/* 子级三角箭头 */
+.tree-row .arrow {
+  width: 0;
+  height: 0;
+  flex-shrink: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid #C0A0A0;
+  margin-right: 2px;
+  transition: transform .2s;
+}
+
+.tree-row.active .arrow {
+  border-left-color: #fff;
+}
+
+.tree-row .arrow.expanded {
+  transform: rotate(90deg);
 }
 
 /* 标签文字 */
