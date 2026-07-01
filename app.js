@@ -17,7 +17,6 @@
   const btnPptx     = document.getElementById('btnPptx')
   const prefaceNav  = document.getElementById('prefaceNav')
   const sidebarGif  = document.getElementById('sidebarGif')
-  const collapseBtn = document.getElementById('collapseAllBtn')
   const backToTop   = document.getElementById('backToTop')
 
   // --- 状态 ---
@@ -398,12 +397,6 @@
   })
 
   overlay.addEventListener('click', closeSidebar)
-
-  // 一键收起所有文件夹
-  collapseBtn.addEventListener('click', () => {
-    expandedPaths.clear()
-    renderTree(searchEl.value)
-  })
 
   // 返回顶部
   treeEl.addEventListener('scroll', () => {

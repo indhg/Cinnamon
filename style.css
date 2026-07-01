@@ -224,21 +224,6 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 8px;
 }
 
-/* 一键收起按钮 */
-.collapse-all-btn {
-  background: none;
-  border: none;
-  color: #C0A0A0;
-  font-size: .7rem;
-  cursor: pointer;
-  padding: 2px 6px;
-  border-radius: 4px;
-  transition: color .2s;
-  line-height: 1;
-}
-
-.collapse-all-btn:hover { color: var(--accent); }
-
 /* 返回顶部 */
 .back-to-top {
   text-align: center;
