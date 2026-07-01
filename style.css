@@ -612,6 +612,42 @@ button { font-family: inherit; cursor: pointer; }
   margin-top: 8px;
 }
 
+/* 更新通知栏 */
+.update-log {
+  background: rgba(255, 251, 247, 0.75);
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin-top: 12px;
+  max-width: 520px;
+  width: 100%;
+  text-align: left;
+}
+
+.update-log-title {
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 6px;
+}
+
+.update-log-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: .78rem;
+  color: #8B7B7B;
+  line-height: 1.7;
+}
+
+.update-date {
+  display: inline-block;
+  min-width: 42px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: .72rem;
+  margin-right: 4px;
+}
+
 /* 访问计数器 */
 .welcome-counter {
   font-size: .8rem;
