@@ -294,7 +294,7 @@
         </ul>
       </div>
 
-      <p class="welcome-hint">左侧选择笔记即可预览</p>
+
       <p class="welcome-counter">
         <span id="busuanzi_container_site_uv">被 <span id="busuanzi_value_site_uv"></span> 人浏览过</span>
       </p>
@@ -491,22 +491,22 @@
 
   // --- 启动 ---
   // 侧边栏「序言」→ 切换文字面板
-  // 侧边栏「通知」→ 切换更新日志
+  // 侧边栏「通知」→ 切换更新日志（互斥：关闭序言）
   notifyNav.addEventListener('click', function () {
-    // 如果正在看笔记，先回到首页
     if (activePath) resetToWelcome()
+    if (prefaceVisible) setPrefaceVisible(false)
     toggleNotify()
     if (window.innerWidth <= 768) closeSidebar()
   })
 
-  // 侧边栏「序言」→ 切换文字面板
+  // 侧边栏「序言」→ 切换文字面板（互斥：关闭通知）
   prefaceNav.addEventListener('click', function () {
-    // 如果正在看笔记，先回到欢迎页
     if (activePath) {
       resetToWelcome()
-      setPrefaceVisible(true)  // 从笔记点序言 → 显示文字
+      setPrefaceVisible(true)
     } else {
-      togglePreface()           // 已经在欢迎页 → 切换
+      if (notifyVisible) setNotifyVisible(false)
+      togglePreface()
     }
     if (window.innerWidth <= 768) closeSidebar()
   })
