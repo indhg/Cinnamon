@@ -224,6 +224,41 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 8px;
 }
 
+/* 一键收起按钮 */
+.collapse-all-btn {
+  background: none;
+  border: none;
+  color: #C0A0A0;
+  font-size: .7rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color .2s;
+  line-height: 1;
+}
+
+.collapse-all-btn:hover { color: var(--accent); }
+
+/* 返回顶部 */
+.back-to-top {
+  text-align: center;
+  padding: 8px;
+  color: #C0B0B0;
+  cursor: pointer;
+  font-size: .85rem;
+  border-top: 1px solid var(--border);
+  transition: color .2s, background .12s;
+  flex-shrink: 0;
+  display: none;
+}
+
+.back-to-top:hover {
+  color: var(--accent);
+  background: var(--hover);
+}
+
+.back-to-top.visible { display: block; }
+
 /* 侧边栏留言入口 */
 .sidebar-comments {
   display: block;

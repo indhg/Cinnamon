@@ -17,6 +17,8 @@
   const btnPptx     = document.getElementById('btnPptx')
   const prefaceNav  = document.getElementById('prefaceNav')
   const sidebarGif  = document.getElementById('sidebarGif')
+  const collapseBtn = document.getElementById('collapseAllBtn')
+  const backToTop   = document.getElementById('backToTop')
 
   // --- 状态 ---
   let noteTree   = []        // 完整的笔记树
@@ -396,6 +398,20 @@
   })
 
   overlay.addEventListener('click', closeSidebar)
+
+  // 一键收起所有文件夹
+  collapseBtn.addEventListener('click', () => {
+    expandedPaths.clear()
+    renderTree(searchEl.value)
+  })
+
+  // 返回顶部
+  treeEl.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', treeEl.scrollTop > 200)
+  })
+  backToTop.addEventListener('click', () => {
+    treeEl.scrollTo({ top: 0, behavior: 'smooth' })
+  })
 
   // --- 键盘快捷键 ---
   document.addEventListener('keydown', (e) => {
