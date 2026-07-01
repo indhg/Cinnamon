@@ -339,6 +339,11 @@
     notifyVisible = show
     const el = document.getElementById('updateLog')
     if (el) el.style.display = show ? '' : 'none'
+    // 通知图标状态切换
+    const icon = notifyNav.querySelector('img')
+    if (icon) {
+      icon.style.filter = show ? 'brightness(1.2) drop-shadow(0 0 3px rgba(254,151,151,.5))' : ''
+    }
   }
 
   function toggleNotify () {
