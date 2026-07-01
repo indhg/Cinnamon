@@ -215,7 +215,7 @@
 
           <p class="preface-quote">「在这众神之怒中，总有人要成为你的超级巨星。」——索琳</p>
         </div>
-        <p class="welcome-hint">左侧选择笔记即可预览 · 试试点两次序言</p>
+        <p class="welcome-hint">左侧选择笔记即可预览</p>
         <p class="welcome-counter">
           <span id="busuanzi_container_site_uv">被 <span id="busuanzi_value_site_uv"></span> 人浏览过</span>
         </p>
