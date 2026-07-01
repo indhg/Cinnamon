@@ -630,6 +630,14 @@ button { font-family: inherit; cursor: pointer; }
   margin-bottom: 6px;
 }
 
+.update-log-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+  image-rendering: pixelated;
+}
+
 .update-log-list {
   list-style: none;
   margin: 0;
