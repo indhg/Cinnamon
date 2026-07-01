@@ -285,8 +285,7 @@
     } else {
       pdfViewer.innerHTML = `
         <div class="welcome-placeholder">
-          <div class="icon-big">📄</div>
-          <p>该笔记没有 PDF 文件<br><small style="color:#D0C0C0;">仅有 .one 下载</small></p>
+          <p>该笔记没有 PDF 文件<br><small style="color:#D0C0C0;">仅有下载</small></p>
         </div>`
     }
 

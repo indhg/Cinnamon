@@ -249,8 +249,27 @@ button { font-family: inherit; cursor: pointer; }
   padding: 8px 0 20px;
 }
 
+/* 滚动条统一美化 */
 .tree::-webkit-scrollbar { width: 4px; }
-.tree::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.tree::-webkit-scrollbar-track { background: transparent; }
+.tree::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+  transition: background .2s;
+}
+.tree::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Firefox 滚动条 */
+.tree {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* 内容区滚动条 */
+.content::-webkit-scrollbar { width: 5px; }
+.content::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.content::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+.content { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
 
 /* 树节点 */
 .tree-node { user-select: none; }
