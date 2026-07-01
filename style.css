@@ -276,7 +276,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .sidebar-comments-icon {
-  font-size: .85rem;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 4px;
+  image-rendering: pixelated;
 }
 
 /* 树形导航 */
