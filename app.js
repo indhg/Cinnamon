@@ -409,6 +409,45 @@
     }
   })
 
+  // --- 肉桂卷雨 ---
+  function cinnamonRain () {
+    const ICON = '素材/索琳肉桂卷.png'
+    const COUNT = 22
+    const container = document.createElement('div')
+    container.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9998;overflow:hidden;'
+
+    for (let i = 0; i < COUNT; i++) {
+      const roll = document.createElement('img')
+      roll.src = ICON
+      const size = 18 + Math.random() * 24
+      const left = Math.random() * 100
+      const delay = Math.random() * 1.5
+      const duration = 2.5 + Math.random() * 3
+      roll.style.cssText = `
+        position:absolute; top:-40px; left:${left}%;
+        width:${size}px; height:${size}px; opacity:0.85;
+        animation: cinnamon-fall ${duration}s ${delay}s linear forwards;
+      `
+      container.appendChild(roll)
+    }
+    document.body.appendChild(container)
+
+    // 动画结束后清理
+    setTimeout(() => container.remove(), 6000)
+  }
+
+  // 注入下落动画 keyframes
+  ;(function () {
+    const sheet = document.createElement('style')
+    sheet.textContent = `
+      @keyframes cinnamon-fall {
+        0%   { transform: translateY(0); opacity:0.9; }
+        100% { transform: translateY(105vh); opacity:0; }
+      }
+    `
+    document.head.appendChild(sheet)
+  })()
+
   // --- 启动 ---
   // 侧边栏「序言」→ 切换文字面板
   prefaceNav.addEventListener('click', function () {
@@ -438,6 +477,7 @@
       noteTitle.textContent = '小猫哈气！'
       meowDone = true
       if (sidebarGif) sidebarGif.style.display = ''
+      cinnamonRain()
     }
   })
   noteTitle.style.cursor = 'pointer'
