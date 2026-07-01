@@ -262,13 +262,31 @@ button { font-family: inherit; cursor: pointer; }
   padding: 7px 16px 7px 12px;
   cursor: pointer;
   font-size: .9rem;
-  transition: background .12s;
+  transition: background .15s, padding-left .2s, color .15s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  border-radius: 0 6px 6px 0;
+  margin-right: 8px;
 }
 
-.tree-row:hover { background: var(--hover); }
+.tree-row:hover {
+  background: var(--hover);
+  padding-left: 16px;
+}
+
+.tree-row.active {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 0 8px 8px 0;
+  margin-right: 4px;
+  box-shadow: 0 2px 8px rgba(254,151,151,.25);
+}
+
+.tree-row.active:hover {
+  padding-left: 16px;
+  background: #F59090;
+}
 
 .tree-row.active {
   background: var(--accent);
@@ -290,7 +308,9 @@ button { font-family: inherit; cursor: pointer; }
   transition: transform .2s;
 }
 
-.tree-row.active .arrow { border-left-color: #fff; }
+.tree-row.active .arrow {
+  border-left-color: #fff;
+}
 
 .tree-row .arrow.expanded {
   transform: rotate(90deg);
