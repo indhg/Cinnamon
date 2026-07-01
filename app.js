@@ -24,6 +24,59 @@
   let activePath = null      // 当前选中笔记的 PDF 路径
   let expandedPaths = new Set() // 已展开的文件夹路径
 
+  // 书籍图标库（为每个文件夹随机分配）
+  const BOOK_ICONS = [
+    '素材/书籍图标/《中古手记》.png',
+    '素材/书籍图标/《二十二拾遗》.png',
+    '素材/书籍图标/《仙人掌巨册》.png',
+    '素材/书籍图标/《可疑的魔法书》.png',
+    '素材/书籍图标/《史莱姆圣经》.png',
+    '素材/书籍图标/《四叶草手册》.png',
+    '素材/书籍图标/《奇迹之书》.png',
+    '素材/书籍图标/《如何飞行》.png',
+    '素材/书籍图标/《怪物图鉴学生版》.png',
+    '素材/书籍图标/《星流蓝图》.png',
+    '素材/书籍图标/《未完成的涂色书》.png',
+    '素材/书籍图标/《未来学通论（Futuristic_Treatise）》.png',
+    '素材/书籍图标/《浅论隐形墨水》.png',
+    '素材/书籍图标/《海洋地图册》.png',
+    '素材/书籍图标/《玄晦篇》.png',
+    '素材/书籍图标/《神明之狂怒》.png',
+    '素材/书籍图标/《蒙尘日记》.png',
+    '素材/书籍图标/《衰变之书》.png',
+    '素材/书籍图标/《论苹果》.png',
+    '素材/书籍图标/《诡谲狂草》.png',
+    '素材/书籍图标/《谶兆之书》.png',
+    '素材/书籍图标/《酸性祈祷书》.png',
+    '素材/书籍图标/《钓鱼大全》.png',
+    '素材/书籍图标/《钨钢装配手册》.png',
+    '素材/书籍图标/《魔法辞海》.png'
+  ]
+  const folderIcons = new Map() // path → icon url
+
+  // 预扫描所有文件夹路径，按字母序分配图标，确保不重复
+  function assignIcons (tree) {
+    const paths = []
+    function walk (nodes) {
+      for (const n of nodes) {
+        if (n.type === 'folder') {
+          paths.push(n.path || n.name)
+          if (n.children) walk(n.children)
+        }
+      }
+    }
+    walk(tree)
+    paths.sort()
+    // 分配：循环使用图标库
+    for (let i = 0; i < paths.length; i++) {
+      folderIcons.set(paths[i], BOOK_ICONS[i % BOOK_ICONS.length])
+    }
+  }
+
+  function getFolderIcon (path) {
+    return folderIcons.get(path) || BOOK_ICONS[0]
+  }
+
   // --- 加载数据 ---
   async function loadData () {
     try {
@@ -44,6 +97,7 @@
       noteTree = []
       aliases = {}
     }
+    assignIcons(noteTree)
     renderTree()
   }
 
@@ -118,12 +172,13 @@
       row.style.paddingLeft = (12 + depth * 18 + 10) + 'px'
     }
 
-    // 箭头（可展开节点）
+    // 书籍图标（可展开节点）
     if (isExpandable) {
-      const arrow = document.createElement('span')
-      arrow.className = 'arrow'
-      if (expandedPaths.has(path)) arrow.classList.add('expanded')
-      row.appendChild(arrow)
+      const icon = document.createElement('img')
+      icon.className = 'book-icon'
+      if (expandedPaths.has(path)) icon.classList.add('expanded')
+      icon.src = getFolderIcon(path)
+      row.appendChild(icon)
     }
 
     // 标签

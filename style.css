@@ -204,8 +204,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .preface-nav-icon {
-  font-size: .8rem;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
   margin-right: 4px;
+  border-radius: 3px;
 }
 
 /* 侧边栏底部 GIF */
@@ -315,24 +318,19 @@ button { font-family: inherit; cursor: pointer; }
 /* 层级缩进 */
 .tree-row .indent { flex-shrink: 0; }
 
-/* 展开/折叠箭头 — CSS 三角形 */
-.tree-row .arrow {
-  width: 0;
-  height: 0;
+/* 展开/折叠 — 书籍图标 */
+.tree-row .book-icon {
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 6px solid #C0A0A0;
-  margin-right: 2px;
-  transition: transform .2s;
+  margin-right: 4px;
+  border-radius: 2px;
+  transition: transform .25s, opacity .2s;
 }
 
-.tree-row.active .arrow {
-  border-left-color: #fff;
-}
-
-.tree-row .arrow.expanded {
-  transform: rotate(90deg);
+.tree-row .book-icon.expanded {
+  transform: scale(1.15);
+  filter: brightness(1.1);
 }
 
 /* 标签文字 */
