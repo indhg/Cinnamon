@@ -256,7 +256,7 @@
         </div>
         <div class="welcome-divider"></div>
         <div class="welcome-preface">
-          <p><strong>温馨提示：</strong>Cinnamon 支持以下两种笔记格式，请按需选择——</p>
+          <p><strong>温馨提示：</strong>Cinnamon 支持以下两种笔记格式，请按需选择</p>
 
           <p class="format-compare">
             <span class="format-tag pdf">.pdf</span>
