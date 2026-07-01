@@ -221,6 +221,26 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 8px;
 }
 
+/* 侧边栏留言入口 */
+.sidebar-comments {
+  display: block;
+  padding: 12px 20px;
+  font-size: .9rem;
+  color: var(--heading);
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  transition: background .12s;
+  flex-shrink: 0;
+}
+
+.sidebar-comments:hover {
+  background: var(--hover);
+}
+
+.sidebar-comments-icon {
+  font-size: .85rem;
+}
+
 /* 树形导航 */
 .tree {
   flex: 1;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>留言区 · 红云irch的肉桂卷</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .comments-page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+    .comments-page .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      font-size: .9rem;
+      color: #B0A0A0;
+      text-decoration: none;
+    }
+    .comments-page .back-link:hover { color: var(--accent); }
+    .comments-info {
+      background: var(--sidebar);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      font-size: .9rem;
+      color: #8B7B7B;
+      line-height: 1.8;
+    }
+    .comments-info strong {
+      color: var(--heading);
+    }
+    .comments-info a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="comments-page">
+    <a href="index.html" class="back-link">← 返回笔记</a>
+
+    <div class="comments-info">
+      <!-- 个人账户信息 —— 在这里自由修改 -->
+      <p>这里归 <strong>红云irch</strong> 所有。
+        <br><a href="https://www.cc98.org/topic/6553150" target="_blank">点击传送我的一路楼，欢迎来玩喵~</a>
+      </p>
+      <p>有关笔记内容的问题、勘误、建议，或者只是想打个招呼，都可以在下面留言。</p>
+      <p>GitHub：<a href="https://github.com/indhg" target="_blank">@indhg</a></p>
+      <!-- 可以继续加邮箱、B站、其他链接等 -->
+    </div>
+
+    <!-- giscus 留言区 -->
+    <script src="https://giscus.app/client.js"
+      data-repo="indhg/Cinnamon"
+      data-repo-id="R_kgDOTIYS7Q"
+      data-category="General"
+      data-category-id="DIC_kwDOTIYS7c4DAQEj"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="zh-CN"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+
+</body>
+</html>
