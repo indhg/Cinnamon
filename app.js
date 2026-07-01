@@ -280,24 +280,24 @@
 
           <p class="preface-quote">「在这众神之怒中，总有人要成为你的超级巨星。」——索琳</p>
         </div>
-
-        <!-- 更新通知栏 -->
-        <div class="update-log" id="updateLog">
-          <div class="update-log-title">📢 更新通知</div>
-          <ul class="update-log-list">
-            <li><span class="update-date">07-01</span> 笔记更正（机械制图 > 期末考试 > 尺寸标注）：盲孔螺纹标注中粗牙普通螺纹与细牙普通螺纹的区别</li>
-<li><span class="update-date">07-01</span> 机械制图及CAD基础竣工</li>
-            <li><span class="update-date">07-01</span> 新增留言区（giscus）</li>
-            <li><span class="update-date">06-30</span> 上线课堂PPT支持（.pptx下载）</li>
-            <li><span class="update-date">06-29</span> 网站上线，首批笔记：普化实验、大物Ⅰ</li>
-          </ul>
-        </div>
-
-        <p class="welcome-hint">左侧选择笔记即可预览</p>
-        <p class="welcome-counter">
-          <span id="busuanzi_container_site_uv">被 <span id="busuanzi_value_site_uv"></span> 人浏览过</span>
-        </p>
       </div>
+
+      <!-- 更新通知栏（独立于序言面板） -->
+      <div class="update-log" id="updateLog">
+        <div class="update-log-title">📢 更新通知</div>
+        <ul class="update-log-list">
+          <li><span class="update-date">07-01</span> 笔记更正（机械制图 > 期末考试 > 尺寸标注）：盲孔螺纹标注中粗牙普通螺纹与细牙普通螺纹的区别</li>
+          <li><span class="update-date">07-01</span> 机械制图及CAD基础竣工</li>
+          <li><span class="update-date">07-01</span> 新增留言区（giscus）</li>
+          <li><span class="update-date">06-30</span> 上线课堂PPT支持（.pptx下载）</li>
+          <li><span class="update-date">06-29</span> 网站上线，首批笔记：普化实验、大物Ⅰ</li>
+        </ul>
+      </div>
+
+      <p class="welcome-hint">左侧选择笔记即可预览</p>
+      <p class="welcome-counter">
+        <span id="busuanzi_container_site_uv">被 <span id="busuanzi_value_site_uv"></span> 人浏览过</span>
+      </p>
     </div>`
 
   // --- 恢复欢迎区 ---
