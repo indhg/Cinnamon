@@ -70,7 +70,21 @@ function scanDir (dirPath) {
     })
   }
 
+  // --- 读取 index.json ---
+  let orderList = []
+  let flatMode  = false
+  const indexFile = path.join(dirPath, 'index.json')
+  if (fs.existsSync(indexFile)) {
+    try {
+      const cfg = JSON.parse(fs.readFileSync(indexFile, 'utf-8'))
+      if (Array.isArray(cfg.order)) orderList = cfg.order
+      if (cfg.flat) flatMode = true
+    } catch (_) { /* 忽略 */ }
+  }
+
   // --- 后处理：把未配对的 PDF 挂到 .one 主笔记下 ---
+  if (flatMode) { /* 平级模式：跳过自动挂载 */ }
+  else {
   // 找出作为主笔记的 .one（有 one 但没有同名 pdf，或者有 one 且同目录下存在孤儿 pdf）
   const orphans = notes.filter(n => n.one && !n.pdf)  // .one 主笔记候选
   const stray   = notes.filter(n => n.pdf && !n.one)  // 未配对的 PDF
@@ -122,16 +136,7 @@ function scanDir (dirPath) {
       if (!o.children || o.children.length === 0) delete o.children
     }
   }
-
-  // --- 读取本目录的 index.json（可选排序配置）---
-  let orderList = []
-  const indexFile = path.join(dirPath, 'index.json')
-  if (fs.existsSync(indexFile)) {
-    try {
-      const cfg = JSON.parse(fs.readFileSync(indexFile, 'utf-8'))
-      if (Array.isArray(cfg.order)) orderList = cfg.order
-    } catch (_) { /* 忽略解析错误 */ }
-  }
+  } // end else (flatMode)
 
   // 排序：orderList 中的按指定顺序排前面，其余按拼音
   function sortByOrder (arr) {
